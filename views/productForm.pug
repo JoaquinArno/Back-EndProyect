@@ -1,0 +1,26 @@
+html 
+    head 
+        title Tienda
+
+    body 
+        h1 Ingresá un producto
+        form(action="/products", method="post") 
+
+            input(type="text", name="name", placeholder="Nombre")
+            br
+            input(type="text", name="price", placeholder="Precio")
+            br
+            input(type="text", name="thumbnail", placeholder="URL de la imagen")
+            br
+            input(type="submit", value="Confirmar")
+
+        button(id="buttonToProducts") Ver productos
+
+        script const buttonToProducts = document.getElementById("buttonToProducts"); buttonToProducts.addEventListener("click", (event) => { window.location = "/products"; });
+
+        
+
+
+
+
+

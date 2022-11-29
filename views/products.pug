@@ -1,0 +1,19 @@
+if products.length
+   each product in products
+      p= product.name
+      p= product.price
+      img(src="product.thumbnail", width="75")
+else 
+    p No hay productos
+
+
+html 
+    head 
+        title Tienda
+
+    body 
+
+       button(id="buttonToForm") Cargar nuevo producto
+
+       script const buttonToForm = document.getElementById("buttonToForm"); buttonToForm.addEventListener("click", (event) => { window.location = "/"; });
+              
