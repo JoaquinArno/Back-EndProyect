@@ -1,0 +1,17 @@
+    <ul>
+        {{#each products}}
+        <li>
+            <p>Nombre: {{this.title}}</p>
+            <p>Precio: ${{this.price}}</p>
+            <img src="{{this.thumbnail}}" width="75">
+        </li>
+        {{/each}}
+    </ul>
+
+    <button id="buttonToForm">Cargar nuevo producto</button>
+
+
+    <script>
+        const buttonToForm = document.getElementById("buttonToForm");
+        buttonToForm.addEventListener("click", (event)=> { window.location= "/"; });
+    </script>

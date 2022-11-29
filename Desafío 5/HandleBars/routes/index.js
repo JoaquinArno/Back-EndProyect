@@ -6,7 +6,7 @@ const products = [];
 
 router.get('/', (req, res) => {
 
-    res.render("productForm.hbs");
+    res.render("productForm");
 })
 
 router.post('/products', (req, res) => {
@@ -18,9 +18,9 @@ router.post('/products', (req, res) => {
     res.redirect("/");
 })
 
-router.get('/', (req, res) => {
+router.get('/products', (req, res) => {
 
-    res.render("products.hbs", products);
+    res.render("products", { products });
 })
 
 

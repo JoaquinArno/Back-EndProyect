@@ -1,0 +1,19 @@
+    <h1>Ingresá un producto</h1>
+
+    <form action="/products" method="post">
+
+        <input type="text" name="name" placeholder="Nombre"> <br>
+        <input type="text" name="price" placeholder="Precio"> <br>
+        <input type="text" name="thumbnail" placeholder="URL de la imagen"> <br>
+        <input type="submit" value="Confirmar">
+
+    </form>
+
+    <button id="buttonToProducts">Ver Productos</button>
+
+
+
+    <script>
+        const buttonToProducts = document.getElementById("buttonToProducts");
+        buttonToProducts.addEventListener("click", (event)=> { window.location = "/products"; });
+    </script>
