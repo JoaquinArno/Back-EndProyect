@@ -20,7 +20,7 @@ router.post('/products', (req, res) => {
 
 router.get('/products', (req, res) => {
 
-    res.render("products.pug", products);
+    res.render("products.pug", { products });
 })
 
 
