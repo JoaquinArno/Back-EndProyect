@@ -1,4 +1,4 @@
-const Contenedor = require('./contenedor.js')
+const Contenedor = require ('./contenedor.js')
 const log = (p) => console.log(p)
 
 const item1= {  
