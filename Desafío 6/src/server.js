@@ -24,7 +24,7 @@ app.use(express.static(__dirname + "./public"));
 router.get('/', (req, res) => {
 
     res.sendFile(__dirname + "./public/index.html");
-})
+});
 
 io.on("connection", (socket)=> {
     console.log(`New connection established, Socket ID: ${socket.id}`);

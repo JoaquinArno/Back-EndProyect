@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io.connect();
 
 const productForm = document.getElementById("productForm");
 const nameInput = document.getElementById("nameInput");
@@ -11,16 +11,16 @@ const sendProduct = (productInfo) => {
     socket.emit("client:product", productInfo);
 };
   
-const renderProduct = (productsData) => {
-    const html = productsData.map((productInfo) => {
-        return `<ul>
-                    <li>
-                        <p>Nombre: ${productInfo.nombre}</p> <br/>
-                        <p>Precio: ${productInfo.precio}</p> <br/>
-                        <img src=${productInfo.thumbnail} width="75">
-                    </li>
-                </ul>`;
-    });
+const renderProduct = (productInfo) => {
+
+    return fetch('plantillas/products.hbs')
+    .then(respuesta => respuesta.text())
+    .then(plantilla => {
+        const template = Handlebars.compile(plantilla);
+        const html = template({ productInfo })
+        return html
+    })
+  
     console.log("Arreglo de string de productos", html);
   
     console.log("String de productos", html.join(" "));

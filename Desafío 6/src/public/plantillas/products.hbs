@@ -1,0 +1,9 @@
+<ul>
+    {{#each products}}
+    <li>
+        <p>Nombre: {{this.title}}</p>
+        <p>Precio: ${{this.price}}</p>
+        <img src="{{this.thumbnail}}" width="75">
+    </li>
+    {{/each}}
+</ul>

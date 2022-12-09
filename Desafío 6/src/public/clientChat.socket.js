@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io.connect();
 const messageForm = document.getElementById("messageForm");
 const emailInput = document.getElementById("emailInput");
 const messageInput = document.getElementById("messageInput");
