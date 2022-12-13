@@ -2,7 +2,6 @@ const socket = io.connect();
 const messageForm = document.getElementById("messageForm");
 const emailInput = document.getElementById("emailInput");
 const messageInput = document.getElementById("messageInput");
-const messagesPool = document.getElementById("messagesPool");
 
 
 const sendMessage = (messageInfo) => {
@@ -16,8 +15,6 @@ const renderMessage = (messagesData) => {
   console.log("Arreglo de string de mensajes", html);
 
   console.log("String de mensajes", html.join(" "));
-
-  messagesPool.innerHTML = html.join(" ");
 };
 
 
@@ -35,6 +32,4 @@ sendMessage(messageInfo);
 };
 
 messageForm.addEventListener("submit", submitMessageHandler);
-
-
 socket.on("server:message", renderMessage);

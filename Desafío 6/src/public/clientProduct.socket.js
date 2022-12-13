@@ -13,19 +13,13 @@ const sendProduct = (productInfo) => {
   
 const renderProduct = (productInfo) => {
 
-    return fetch('plantillas/products.hbs')
+    return fetch('/views/products.hbs')
     .then(respuesta => respuesta.text())
     .then(plantilla => {
         const template = Handlebars.compile(plantilla);
         const html = template({ productInfo })
         return html
     })
-  
-    console.log("Arreglo de string de productos", html);
-  
-    console.log("String de productos", html.join(" "));
-  
-    productsPool.innerHTML = html.join(" ");
 };
   
   

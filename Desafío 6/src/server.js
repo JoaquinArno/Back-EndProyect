@@ -1,10 +1,10 @@
-import express, { Router } from "express";
+import express from "express";
 import { Server as IOServer } from "socket.io";
+import { engine } from "express-handlebars";
 import { fileURLToPath } from "url";
-import { dirname } from "path";
+import { dirname, join } from "path";
 
 const app = express();
-const router = Router();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const expressServer = app.listen(8080, (error) => {
@@ -19,12 +19,18 @@ const io = new IOServer (expressServer);
 const messages = [];
 const products = [];
 
-app.use(express.static(__dirname + "./public"));
+app.use(express.static(__dirname + "/public"));
 
-router.get('/', (req, res) => {
+app.engine("hbs", engine({
 
-    res.sendFile(__dirname + "./public/index.html");
-});
+  extname: ".hbs",
+  defaultLayout: join(__dirname, "/public/views/main.hbs"),
+  layoutsDir: join(__dirname, "/public/views/layouts")
+}));
+
+
+app.set("view engine", "hbs");
+app.set("views", join(__dirname, "/public/views"));
 
 io.on("connection", (socket)=> {
     console.log(`New connection established, Socket ID: ${socket.id}`);
