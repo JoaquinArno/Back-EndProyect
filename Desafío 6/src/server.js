@@ -1,10 +1,11 @@
-import express from "express";
+import express, {Router} from "express";
 import { Server as IOServer } from "socket.io";
 import { engine } from "express-handlebars";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
 const app = express();
+const router = Router();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const expressServer = app.listen(8080, (error) => {
@@ -31,6 +32,7 @@ app.engine("hbs", engine({
 
 app.set("view engine", "hbs");
 app.set("views", join(__dirname, "/public/views"));
+
 
 io.on("connection", (socket)=> {
     console.log(`New connection established, Socket ID: ${socket.id}`);

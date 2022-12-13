@@ -10,7 +10,10 @@ const sendMessage = (messageInfo) => {
 
 const renderMessage = (messagesData) => {
   const html = messagesData.map((messageInfo) => {
-    return `<div> <strong>${messageInfo.email}</strong> <em>${messageInfo.message}</em> </div>`;
+    return `<div> 
+                <strong style="color: blue">${messageInfo.email}</strong> 
+                <em style="font-style: italic; color: green">${messageInfo.message}</em> 
+            </div>`;
   });
   console.log("Arreglo de string de mensajes", html);
 
